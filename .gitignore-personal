@@ -1,0 +1,130 @@
+# ========================================
+# PERSONAL DEVELOPMENT FILES
+# Don't upload to GitHub
+# ========================================
+
+# ========================================
+# DOCUMENTATION & NOTES
+# ========================================
+
+# All Markdown files except main ones
+*.md
+!README.md
+!CONTRIBUTING.md
+!LICENSE
+!CHANGELOG.md
+
+# Development Guides and Notes
+*_GUIDE.md
+*_FIX.md
+*_REFACTOR.md
+*_TEST.md
+*_OVERFLOW_FIX.md
+*_VOICE_FIX.md
+*_FINAL_FIX.md
+
+# Specific Documentation Files
+BINDING_GUIDE.md
+CLEAN_ARCHITECTURE_GUIDE.md
+FINAL_FREEZE_FIX.md
+FINAL_VOICE_FIX.md
+UI_OVERFLOW_FIX.md
+VOICE_MESSAGE_FINAL.md
+VOICE_MESSAGE_FIX_FINAL.md
+VOICE_MESSAGE_GUIDE.md
+VOICE_MESSAGE_TEST.md
+USER_DISPLAY_FIX.md
+CHAT_SCREEN_REFACTOR.md
+DEMO_VIDEO_GUIDE.md
+
+# Screenshots Documentation
+assets/screenshots/README.md
+
+# Personal Notes and Development Files
+notes/
+development/
+temp/
+docs/
+*.notes
+*.todo
+*.dev
+
+# ========================================
+# IDE & EDITOR FILES
+# ========================================
+
+# VS Code
+.vscode/
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+
+# IntelliJ/Android Studio
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ========================================
+# OS & TEMPORARY FILES
+# ========================================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# ========================================
+# DEVELOPMENT & DEBUG FILES
+# ========================================
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
+*.cache
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Test reports
+test-results/
+junit.xml
+
+# ========================================
+# SECURITY & SENSITIVE FILES
+# ========================================
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# API Keys and Secrets
+*secret*
+*key*
+*password*
+*credential*
+
+# Firebase (uncomment if you want to hide)
+# google-services.json
+# GoogleService-Info.plist 

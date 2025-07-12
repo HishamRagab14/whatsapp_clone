@@ -1,0 +1,157 @@
+# ========================================
+# FLUTTER/DART PROJECT GITIGNORE
+# ========================================
+
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code
+.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# ========================================
+# DOCUMENTATION & DEVELOPMENT FILES
+# ========================================
+
+# All Markdown files except main ones
+*.md
+!README.md
+!CONTRIBUTING.md
+!LICENSE
+!CHANGELOG.md
+
+# Development Guides and Notes (Hidden from GitHub)
+*_GUIDE.md
+*_FIX.md
+*_REFACTOR.md
+*_TEST.md
+*_OVERFLOW_FIX.md
+*_VOICE_FIX.md
+*_FINAL_FIX.md
+
+# Specific Documentation Files
+BINDING_GUIDE.md
+CLEAN_ARCHITECTURE_GUIDE.md
+FINAL_FREEZE_FIX.md
+FINAL_VOICE_FIX.md
+UI_OVERFLOW_FIX.md
+VOICE_MESSAGE_FINAL.md
+VOICE_MESSAGE_FIX_FINAL.md
+VOICE_MESSAGE_GUIDE.md
+VOICE_MESSAGE_TEST.md
+USER_DISPLAY_FIX.md
+CHAT_SCREEN_REFACTOR.md
+DEMO_VIDEO_GUIDE.md
+
+# Screenshots Documentation
+assets/screenshots/README.md
+
+# Personal Notes and Development Files
+notes/
+development/
+temp/
+docs/
+*.notes
+*.todo
+*.dev
+
+# ========================================
+# SECURITY & CONFIGURATION FILES
+# ========================================
+
+# Firebase Configuration (Keep these for security)
+# google-services.json
+# GoogleService-Info.plist
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# API Keys and Secrets
+*secret*
+*key*
+*password*
+*credential*
+
+# ========================================
+# OS & TEMPORARY FILES
+# ========================================
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# ========================================
+# DEVELOPMENT TOOLS
+# ========================================
+
+# Coverage reports
+coverage/
+*.lcov
+
+# Test reports
+test-results/
+junit.xml
+
+# Logs
+*.log
+logs/
+
+# Cache
+.cache/
+*.cache
