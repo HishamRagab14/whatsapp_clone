@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart'; // For UserCredential
 import 'package:whatsapp_clone/core/repositories/user_repository.dart';
 import 'package:whatsapp_clone/core/services/auth_service.dart';
+import 'package:whatsapp_clone/core/services/firestore_user_service.dart';
 import 'package:whatsapp_clone/model/users/user_model.dart'; // Your AuthService
 
 class OtpController extends GetxController {
@@ -98,6 +99,11 @@ class OtpController extends GetxController {
           await _userRepository.cachUser(userModel);
           log("OtpController: User cached locally: ${userModel.uId}");
         }
+        
+        // تحديث حالة المستخدم إلى online
+        final userService = Get.find<FirestoreUserService>();
+        await userService.updateOnlineStatus(user.uid, true);
+        
         Get.offAllNamed('/home');
       } else {
         errorMessage.value =

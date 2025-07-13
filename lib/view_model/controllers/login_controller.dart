@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import 'package:whatsapp_clone/core/data/countries.dart';
 import 'package:whatsapp_clone/core/repositories/user_repository.dart';
 import 'package:whatsapp_clone/core/services/auth_service.dart';
+import 'package:whatsapp_clone/core/services/firestore_user_service.dart';
 import 'package:whatsapp_clone/model/country_model.dart';
 import 'package:whatsapp_clone/model/phone_verification_request.dart';
 
@@ -94,6 +95,10 @@ class LoginScreenController extends GetxController {
             if (userModel != null) {
               await Get.find<UserRepository>().cachUser(userModel);
             }
+            
+            // تحديث حالة المستخدم إلى online
+            final userService = Get.find<FirestoreUserService>();
+            await userService.updateOnlineStatus(user.uid, true);
 
             Get.offAllNamed('/home');
           } else {

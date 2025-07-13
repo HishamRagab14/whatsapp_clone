@@ -1,9 +1,14 @@
 import 'dart:io';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:whatsapp_clone/core/services/auth_service.dart';
 import 'package:whatsapp_clone/core/services/firestore_user_service.dart';
+import 'package:whatsapp_clone/core/repositories/user_repository.dart';
 import 'package:whatsapp_clone/model/users/user_model.dart';
+import 'package:whatsapp_clone/view_model/controllers/chat_list_controller.dart';
+import 'package:whatsapp_clone/view_model/controllers/status_controller.dart';
+import 'package:whatsapp_clone/view_model/controllers/chat_detail_controller.dart';
 
 class SettingsController extends GetxController {
   final FirestoreUserService _userService = FirestoreUserService();
@@ -162,14 +167,60 @@ class SettingsController extends GetxController {
   /// تسجيل الخروج
   Future<void> logout() async {
     try {
+      // إظهار مؤشر التحميل
+      Get.dialog(
+        const Center(child: CircularProgressIndicator()),
+        barrierDismissible: false,
+      );
+      
+      // إيقاف جميع الـ Stream Listeners أولاً
+      _stopAllStreamListeners();
+      
+      // تسجيل الخروج من Firebase
       await _authService.signOut();
+      
+      // مسح البيانات المحلية
+      final userRepository = Get.find<UserRepository>();
+      await userRepository.clearCachedUser();
+      
+      // إغلاق dialog التحميل
+      Get.back();
+      
+      // الانتقال إلى شاشة تسجيل الدخول مع إعادة تعيين الـ navigation stack
       Get.offAllNamed('/login');
     } catch (e) {
+      // إغلاق dialog التحميل في حالة الخطأ
+      if (Get.isDialogOpen ?? false) {
+        Get.back();
+      }
+      
       Get.snackbar(
         'Error',
         'Failed to logout: $e',
         duration: Duration(seconds: 3),
       );
+    }
+  }
+
+  /// إيقاف جميع الـ Stream Listeners
+  void _stopAllStreamListeners() {
+    try {
+      // حذف ChatListController لإيقاف Stream Listener للـ chats
+      if (Get.isRegistered<ChatListController>()) {
+        Get.delete<ChatListController>();
+      }
+      
+      // حذف StatusController لإيقاف Stream Listener للـ statuses
+      if (Get.isRegistered<StatusController>()) {
+        Get.delete<StatusController>();
+      }
+      
+      // حذف ChatDetailController لإيقاف Stream Listener للـ messages
+      if (Get.isRegistered<ChatDetailController>()) {
+        Get.delete<ChatDetailController>();
+      }
+    } catch (e) {
+      print('❌ Error stopping stream listeners: $e');
     }
   }
 

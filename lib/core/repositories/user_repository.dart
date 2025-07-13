@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:whatsapp_clone/model/users/user_model.dart';
 
@@ -93,6 +94,16 @@ class UserRepository {
   }
 
   Future<void> clearCachedUser() async {
-    await _storage.remove(_userKey);
+    try {
+      await _storage.remove(_userKey);
+      if (kDebugMode) {
+        print("✅ Successfully cleared cached user data");
+      }
+    } catch (e) {
+      if (kDebugMode) {
+        print("❌ Error clearing cached user: $e");
+      }
+      // لا نريد أن نوقف العملية إذا فشل مسح البيانات المحلية
+    }
   }
 }

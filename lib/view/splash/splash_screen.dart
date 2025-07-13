@@ -32,20 +32,26 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   Future<void> _navigateAfterDelay() async {
-    // نخلي الـ splash ظاهر على الأقل 2 ثانية
-    await Future.delayed(const Duration(seconds: 2));
-    
-    // بعد الـ 2 ثانية، نتأكد من حالة المستخدم المحفوظة
-    final user = FirebaseAuth.instance.currentUser;
-    log("💡 SplashScreen: currentUser = $user");
+    try {
+      // نخلي الـ splash ظاهر على الأقل 2 ثانية
+      await Future.delayed(const Duration(seconds: 2));
+      
+      // بعد الـ 2 ثانية، نتأكد من حالة المستخدم المحفوظة
+      final user = FirebaseAuth.instance.currentUser;
+      log("💡 SplashScreen: currentUser = $user");
 
-    if (user != null) {
-      log("→ Found signed-in user: ${user.uid}");
-      // لو في مستخدم محفوظ (مسجّل دخول)
-      Get.offAllNamed('/home');
-    } else {
-      log("→ No user found. Redirecting to /login");
-      // لو مفيش مستخدم مسجّل
+      if (user != null && user.uid.isNotEmpty) {
+        log("→ Found signed-in user: ${user.uid}");
+        // لو في مستخدم محفوظ (مسجّل دخول)
+        Get.offAllNamed('/home');
+      } else {
+        log("→ No user found. Redirecting to /login");
+        // لو مفيش مستخدم مسجّل
+        Get.offAllNamed('/login');
+      }
+    } catch (e) {
+      log("❌ Error in splash navigation: $e");
+      // في حالة حدوث خطأ، انتقل إلى شاشة تسجيل الدخول
       Get.offAllNamed('/login');
     }
   }

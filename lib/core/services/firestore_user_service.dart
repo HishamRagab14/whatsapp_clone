@@ -228,12 +228,5 @@ class FirestoreUserService {
     }
   }
 
-  void logout() {
-    try {
-      FirebaseAuth.instance.signOut();
-    } catch (e) {
-      debugPrint('Error logging out: $e');
-      rethrow;
-    }
-  }
+
 }

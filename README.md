@@ -4,7 +4,14 @@ A modern WhatsApp clone built with Flutter and Firebase, featuring real-time mes
 
 ## 📱 Demo
 
-![WhatsApp Clone Demo](assets/demo.gif)
+### Authentication
+![Authentication Demo](assets/screenshots/auth_demo.gif)
+
+### Chat
+![Chat Demo](assets/screenshots/chat_demo.gif)
+
+### Status (Stories)
+![Status Demo](assets/screenshots/status_demo.gif)
 
 ### Screenshots
 
