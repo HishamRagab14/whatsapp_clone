@@ -13,15 +13,17 @@ A modern WhatsApp clone built with Flutter and Firebase, featuring real-time mes
 ### Status (Stories)
 ![Status Demo](assets/screenshots/status_demo.gif)
 
+> **Note:** If the GIFs do not appear immediately on GitHub, it may be due to caching or large file size. Try refreshing the page after a few minutes.
+
 ### Screenshots
 
-| Authentication | Chats List | Chat Detail |
-|----------------|------------|-------------|
-| ![Login](assets/screenshots/login.png) | ![Chats](assets/screenshots/chats.png) | ![Chat](assets/screenshots/chat_detail.png) |
+| Login | OTP | Chat List | Chat Detail |
+|-------|-----|-----------|------------|
+| ![Login](assets/screenshots/login_screen.png) | ![OTP](assets/screenshots/otp_screen.png) | ![Chat List](assets/screenshots/chat_list.png) | ![Chat Detail](assets/screenshots/chat_detail.png) |
 
-| Stories | Users | Settings |
-|---------|-------|----------|
-| ![Stories](assets/screenshots/stories.png) | ![Users](assets/screenshots/users.png) | ![Settings](assets/screenshots/settings.png) |
+| Status List | Text Status | Image Status | Settings |
+|-------------|------------|--------------|----------|
+| ![Status List](assets/screenshots/status_list.png) | ![Text Status](assets/screenshots/text_status.png) | ![Image Status](assets/screenshots/image_status.png) | ![Settings](assets/screenshots/settings.png) |
 
 ## ✨ Features
 
@@ -60,24 +62,7 @@ A modern WhatsApp clone built with Flutter and Firebase, featuring real-time mes
 - **GetX** - State Management
 - **Dart** - Programming Language
 
-## 🐛 Common Issues
-
-- **"Unknown User"**: Update user data in Firebase
-- **Profile Pictures**: Check `profileImageUrl` field
-- **Voice Messages**: Allow microphone access
-- **Notifications**: Check Firebase Cloud Messaging setup
-
-## 📞 Support
-
-- 📧 Email: your.email@example.com
-- 🐛 Issues: [GitHub Issues](https://github.com/hishamragab14/whatsapp_clone/issues)
-
-## 📝 License
-
-MIT License - see [LICENSE](LICENSE) file.
-
 ---
 
-⭐ **Star this repository if you found it helpful!**
 
 Made with ❤️ by [Hisham Ragab]
