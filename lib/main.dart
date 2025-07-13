@@ -15,6 +15,7 @@ import 'package:whatsapp_clone/view_model/bindings/otp_binding.dart';
 import 'package:whatsapp_clone/view_model/bindings/settings_binding.dart';
 import 'package:whatsapp_clone/view_model/bindings/status_binding.dart';
 import 'package:whatsapp_clone/view_model/bindings/main_binding.dart';
+import 'package:whatsapp_clone/core/services/notification_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,6 +25,9 @@ Future<void> main() async {
   
   // تهيئة GetStorage
   await GetStorage.init();
+
+  // تهيئة الإشعارات وFCM (سيطبع FCM Token في debug console)
+  await NotificationService().initialize();
 
   runApp(const ChatApp());
 }
